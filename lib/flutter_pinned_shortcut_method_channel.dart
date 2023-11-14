@@ -25,6 +25,11 @@ class MethodChannelFlutterPinnedShortcut extends FlutterPinnedShortcutPlatform {
   }
 
   @override
+  Future<Map?> getExistingShortcuts() async {
+    return await methodChannel.invokeMethod("getExistingShortcuts", {});
+  }
+
+  @override
   Future<void> getLaunchAction(
       void Function(String action) onActionReceived) async {
     String? response = await methodChannel.invokeMethod("getLaunchAction");

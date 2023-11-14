@@ -14,6 +14,9 @@ class FlutterPinnedShortcut {
       iconAssetName: iconAssetName,
     );
   }
+  Future<Map?> getExistingShortcuts() {
+    return FlutterPinnedShortcutPlatform.instance.getExistingShortcuts();
+  }
 
   Future<void> getLaunchAction(
       void Function(String action) onActionReceived) async {

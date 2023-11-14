@@ -33,6 +33,10 @@ abstract class FlutterPinnedShortcutPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
+  Future<Map?> getExistingShortcuts() async {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
   void getLaunchAction(void Function(String action) onActionReceived) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
