@@ -73,6 +73,26 @@ public class PinnedShortcutUtil {
             return e.getLocalizedMessage();
         }
     }
+    public void getExistingShortcuts(MethodChannel.Result result, Activity activity) {
+        if (activity == null) {
+            result.error(
+                    "flutter_pinned_shortcuts_no_activity",
+                    "There is no activity available when launching action",
+                    null);
+            return;
+        }
+        Map<String, Boolean> resultMap = new HashMap<>();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || !ShortcutManagerCompat.isRequestPinShortcutSupported(activity)) {
+            resultMap.put("supported", false);
+        } else {
+            resultMap.put("supported", true);
+            for (ShortcutInfoCompat shortcutManagerCompat : ShortcutManagerCompat.getDynamicShortcuts(activity)) {
+                resultMap.put(shortcutManagerCompat.getId(), true);
+            }
+        }
+        result.success(resultMap);
+    }
+
 
 
     /* ********************   Utility Functions   ********************* */

@@ -43,6 +43,8 @@ public class FlutterPinnedShortcutPlugin implements FlutterPlugin, MethodCallHan
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
         if (call.method.equals("createPinnedShortcut")) {
             result.success(pinnedShortcutUtil.setShortcutItem(call));
+        } else if (call.method.equals("getExistingShortcuts")) {
+            pinnedShortcutUtil.getExistingShortcuts(result, activity);
         } else if (call.method.equals("getLaunchAction")) {
             pinnedShortcutUtil.getLaunchAction(result, activity);
         } else {

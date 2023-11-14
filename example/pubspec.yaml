@@ -18,7 +18,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_pinned_shortcut: ^0.0.1
+  flutter_pinned_shortcut:
+    git:
+      url: https://github.com/shatil-zz/flutter_pinned_shortcut.git
+      ref: main
 
 
   # The following adds the Cupertino Icons font to your application.
